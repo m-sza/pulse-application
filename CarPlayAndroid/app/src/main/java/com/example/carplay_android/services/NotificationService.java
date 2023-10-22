@@ -79,6 +79,7 @@ public class NotificationService extends NotificationListenerService {
 
     private void handleGMapNotification(StatusBarNotification sbn) {
         Bundle bundle = sbn.getNotification().extras;
+        Log.d("ASSSSSSSSSSSSSS", String.valueOf(bundle));
 
         String[] informationMessage = new String[7];
 

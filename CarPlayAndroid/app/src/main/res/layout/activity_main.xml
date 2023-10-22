@@ -5,179 +5,190 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/darkbg"
     tools:context=".MainActivity"
     >
 
     <LinearLayout
         android:id="@+id/upper"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/green"
+        android:layout_height="60dp"
+        android:background="@color/lightbg"
         android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:text="Pulse"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="20sp" />
     </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
+        android:gravity="bottom"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="left"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
-            <TextView
-                android:id="@+id/textViewBT"
-                android:layout_width="170dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:text="BluetoothStatus"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
 
             <ImageView
                 android:id="@+id/imageViewBT"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/status_dot" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="left"
-            android:orientation="horizontal">
-
             <TextView
-                android:id="@+id/textViewBleStatus"
-                android:layout_width="170dp"
+                android:id="@+id/textViewBT"
+                android:layout_width="140dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:text="BleServiceStatus"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:text="BluetoothStatus"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/imageViewBleStatus"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
                 app:srcCompat="@drawable/status_dot" />
+            <TextView
+                android:id="@+id/textViewBleStatus"
+                android:layout_width="142dp"
+                android:layout_height="match_parent"
+                android:text="BleServiceStatus"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="16sp" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="left"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textViewNotification"
-
-                android:layout_width="170dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:text="NotificationStatus"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="5dp">
 
             <ImageView
                 android:id="@+id/imageViewNotification"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/status_dot" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_gravity="left"
-            android:orientation="horizontal">
-
             <TextView
-                android:id="@+id/textViewDevice"
-                android:layout_width="170dp"
+                android:id="@+id/textViewNotification"
+                android:layout_width="152dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:text="DeviceStatus"
-                android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:text="NotificationStatus"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="16sp" />
 
             <ImageView
                 android:id="@+id/imageViewDevice"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
                 android:layout_gravity="center"
+                android:layout_marginLeft="15dp"
                 app:srcCompat="@drawable/status_dot" />
+            <TextView
+                android:id="@+id/textViewDevice"
+                android:layout_width="130dp"
+                android:layout_height="match_parent"
+                android:text="DeviceStatus"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="16sp" />
+
         </LinearLayout>
+
 
         <TextView
             android:id="@+id/textViewLastTimeConnected"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
-            android:text="Last Time Connected"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+            android:layout_marginLeft="20dp"
+            android:text="Last Time Connected:"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textViewDeviceName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:text="No Device Connected"
-            android:textColor="#000000"
-            android:textSize="20sp" />
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="No Device Connected:"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lower"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/green"
+        android:layout_height="70dp"
+        android:background="@color/lightbg"
         android:gravity="right|center_vertical"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/buttonNotification"
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="45dp"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
             android:background="@drawable/button"
-            android:text="Open Notification Access"
+            android:text="Notification settings"
             android:textColor="@color/white"
-            android:textSize="10sp" />
-
-        <Button
-            android:id="@+id/buttonConnectOld"
-            android:layout_width="0dp"
-            android:layout_height="30dp"
-            android:layout_marginHorizontal="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/button"
-            android:text="Connect Previous Device"
-            android:textColor="@color/white"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/buttonScanNew"
             android:layout_width="0dp"
-            android:layout_height="30dp"
+            android:layout_height="45dp"
+            android:layout_marginHorizontal="5dp"
+            android:layout_weight="0.8"
+            android:background="@drawable/button"
+            android:text="scan"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/buttonConnectOld"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
             android:layout_marginHorizontal="5dp"
             android:layout_weight="1"
             android:background="@drawable/button"
-            android:text="Scan New Device"
+            android:text="Connect to Previous"
             android:textColor="@color/white"
-            android:textSize="10sp" />
+            android:textSize="12sp" />
+
+
 
     </LinearLayout>
 
