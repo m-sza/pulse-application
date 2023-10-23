@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef4cc97d-1a57-43f6-ab8a-5d51fc4f1db0" name="Changes" comment="" />
+    <list default="true" id="ef4cc97d-1a57-43f6-ab8a-5d51fc4f1db0" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CarPlayAndroid/app/src/main/java/com/example/carplay_android/services/NotificationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/CarPlayAndroid/app/src/main/java/com/example/carplay_android/services/NotificationService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarPlayAndroid/app/src/main/res/layout/activity_ble_scan_page.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarPlayAndroid/app/src/main/res/layout/activity_ble_scan_page.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarPlayAndroid/app/src/main/res/layout/device_information.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarPlayAndroid/app/src/main/res/layout/device_information.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CarPlayAndroid/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CarPlayAndroid/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,15 +26,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "C:/Users/matyi/OneDrive/Documents/1SCHOOL/y2/q1/4WBB0/CarPlayBLE"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/matyi/OneDrive/Documents/1SCHOOL/y2/q1/4WBB0/CarPlayBLE&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
