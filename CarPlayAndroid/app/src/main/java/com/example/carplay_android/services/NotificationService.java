@@ -69,17 +69,16 @@ public class NotificationService extends NotificationListenerService {
 
             Bundle bun = not.extras;
 
-            for (String key: bun.keySet())
-            {
+            for (String key : bun.keySet()) {
                 try {
-                    Log.d (key, bun.get(key).toString());
+                    Log.d(key, bun.get(key).toString());
+                } catch (Exception e) {
                 }
-                catch (Exception e) { }
             }
 //            fuck yeah
             Log.i("test", bun.get("android.largeIcon").toString());
 
-            Object largeIcon  = bun.get("android.largeIcon");
+            Object largeIcon = bun.get("android.largeIcon");
             Icon icon = (Icon) largeIcon;
 
             Drawable drawable = icon.loadDrawable(this);
@@ -91,11 +90,14 @@ public class NotificationService extends NotificationListenerService {
             byte[] bitmapBytes = baos.toByteArray();
             // shorten byeteArray
             MessageDigest md = null;
-            try { md = MessageDigest.getInstance("MD5"); } catch (Exception e) { }
+            try {
+                md = MessageDigest.getInstance("MD5");
+            } catch (Exception e) {
+            }
             byte[] MD5Bytes = md.digest(bitmapBytes);
 
             String hex = (String) "";
-            for (byte key: MD5Bytes) {
+            for (byte key : MD5Bytes) {
                 hex = hex + Integer.toHexString(Math.abs(key));
             }
 
@@ -108,7 +110,7 @@ public class NotificationService extends NotificationListenerService {
 
             };
             String[] rightCodes = {
-
+                    "124f4c726d254f207476c5b5b177b"
             };
             String[] leftCodes = {
 
@@ -120,17 +122,71 @@ public class NotificationService extends NotificationListenerService {
 
             };
 
-            Log.i("WO", String.valueOf(Arrays.asList(beginCodes).contains(hex)));
 
             String direction = (String) "x";
             String directionText = (String) "unknown";
-            if (Arrays.asList(beginCodes).contains(hex))    { direction = "b"; directionText = "Lets go!"; }
+            if (Arrays.asList(beginCodes).contains(hex)) { direction = "b"; directionText = "Lets go!"; }
             if (Arrays.asList(straightCodes).contains(hex)) { direction = "s"; directionText = "Continue straight"; }
-            if (Arrays.asList(rightCodes).contains(hex))    { direction = "r"; directionText = "Turn right"; }
-            if (Arrays.asList(leftCodes).contains(hex))     { direction = "l"; directionText = "Turn left"; }
-            if (Arrays.asList(uturnCodes).contains(hex))    { direction = "u"; directionText = "Make a U-turn"; }
-            if (Arrays.asList(endCodes).contains(hex))      { direction = "e"; directionText = "You have arrived!"; }
+            if (Arrays.asList(rightCodes).contains(hex)) { direction = "r"; directionText = "Turn right"; }
+            if (Arrays.asList(leftCodes).contains(hex)) { direction = "l"; directionText = "Turn left"; }
+            if (Arrays.asList(uturnCodes).contains(hex)) { direction = "u"; directionText = "Make a U-turn"; }
+            if (Arrays.asList(endCodes).contains(hex)) { direction = "e"; directionText = "You have arrived!"; }
+
+
+//          if (deviceStatus) {
+//            if (!informationMessage[0].equals(informationMessageSentLastTime[0])) {//destination
+//                controlBle.sendDestination(informationMessage[0]);
+//                informationMessageSentLastTime[0] = informationMessage[0];
+//            }
+//            if (!Objects.equals(informationMessage[1], informationMessageSentLastTime[1])) {//ETA
+//                controlBle.sendEta(informationMessage[1]);
+//                informationMessageSentLastTime[1] = informationMessage[1];
+//            }
+//            if (!Objects.equals(informationMessage[2], informationMessageSentLastTime[2])) {//direction
+//
+//                if (informationMessage[2].length() > 20) {
+//                    controlBle.sendDirection(informationMessage[2].substring(0, 20) + "..");
+//                } else {
+//                    controlBle.sendDirection(informationMessage[2]);
+//                }
+//
+//                informationMessageSentLastTime[2] = informationMessage[2];
+//            }
+//            if (!Objects.equals(informationMessage[3], informationMessageSentLastTime[3])) {
+//
+//                controlBle.sendDirectionDistances(informationMessage[3]);
+//
+//                informationMessageSentLastTime[3] = informationMessage[3];
+//            }
+//            if (!Objects.equals(informationMessage[4], informationMessageSentLastTime[4])) {
+//
+//                controlBle.sendEtaInMinutes(informationMessage[4]);
+//
+//                informationMessageSentLastTime[4] = informationMessage[4];
+//            }
+//            if (!Objects.equals(informationMessage[5], informationMessageSentLastTime[5])) {
+//
+//                controlBle.sendDistance(informationMessage[5]);
+//
+//                informationMessageSentLastTime[5] = informationMessage[5];
+//            }
+//            if (!Objects.equals(informationMessage[6], informationMessageSentLastTime[6])) {
+//
+//                controlBle.sendDirectionPrecise(informationMessage[6]);
+//
+//                informationMessageSentLastTime[6] = informationMessage[6];
+//            }
+//            Log.d("d", "done");
+//            informationMessageSentLastTime = informationMessage;
+//            ifSendNotification = false;//reduce the frequency of sending messages
+//            //why not just check if two messages are the same,  why still need to send same message every half second:
+//            //because if the device lost connection before, we have to keep send message to it to keep it does not
+//            //receive any wrong message.
+//        }
+
+
         }
+
 
 //        if (sbn != null && isGMapNotification(sbn)) {
 //            handleGMapNotification(sbn);

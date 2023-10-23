@@ -47,6 +47,10 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageViewDeviceStatus;
     private TextView deviceName;
 
+    private Button buttonTestLeft;
+    private Button buttonTestRight;
+
+
     private BleDevice deviceUsed;
 
 
@@ -87,6 +91,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        buttonTestLeft.setOnClickListener(new View.OnClickListener() {//scan new device
+            @Override
+            public void onClick(View view) {
+                Log.d("LEFT", "LEFT");
+            }
+        });
+        buttonTestRight.setOnClickListener(new View.OnClickListener() {//scan new device
+            @Override
+            public void onClick(View view) {
+                Log.d("RIGHT", "RIGHT");
+            }
+        });
+
     }
 
     private void init(){
@@ -101,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
         buttonOpenNotification  = findViewById(R.id.buttonNotification);
         buttonConnectToOld = findViewById(R.id.buttonConnectOld);
         buttonScanNewDevice = findViewById(R.id.buttonScanNew);
+        buttonTestLeft = findViewById(R.id.buttonTestLeft);
+        buttonTestRight = findViewById(R.id.buttonTestRight);
         imageViewBTStatus = findViewById(R.id.imageViewBT);
         imageViewBleStatus = findViewById(R.id.imageViewBleStatus);
         imageViewNotificationStatus = findViewById(R.id.imageViewNotification);
