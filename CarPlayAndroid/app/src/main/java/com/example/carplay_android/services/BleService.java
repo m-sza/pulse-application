@@ -175,7 +175,7 @@ public class BleService extends Service {
                                 public void run() {
                                     sendToDevice(informationMessage, uuid);
                                 }
-                            },100);
+                            },250);
                         }
                     });
         }

@@ -54,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
     private BleDevice deviceUsed;
 
 
-
+    private Boolean deviceStatus = false;
+    public void onReceive(Context context, Intent intent) {
+        deviceStatus = intent.getBooleanExtra(getFILTER_DEVICE_STATUS(), false);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,12 +97,27 @@ public class MainActivity extends AppCompatActivity {
         buttonTestLeft.setOnClickListener(new View.OnClickListener() {//scan new device
             @Override
             public void onClick(View view) {
+                try {
+                    if (deviceStatus) { //idk if this works remove the if statement if it doesnt
+                        controlBle.sendDirection("l:0");
+                    }
+                } catch (Exception e) {
+                    Log.e("error", "Unable to test, connect device" );
+                }
                 Log.d("LEFT", "LEFT");
             }
         });
+
         buttonTestRight.setOnClickListener(new View.OnClickListener() {//scan new device
             @Override
             public void onClick(View view) {
+                try {
+                    if (deviceStatus) { //idk if this works remove the if statement if it doesnt
+                        controlBle.sendDirection("r:0");
+                    }
+                } catch (Exception e) {
+                    Log.e("error", "Unable to test, connect device" );
+                }
                 Log.d("RIGHT", "RIGHT");
             }
         });

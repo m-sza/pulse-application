@@ -25,6 +25,7 @@ import androidx.annotation.LongDef;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.clj.fastble.BleManager;
+import com.example.carplay_android.R;
 import com.example.carplay_android.utils.BroadcastUtils;
 import com.example.carplay_android.utils.DirectionUtils;
 
@@ -76,8 +77,6 @@ public class NotificationService extends NotificationListenerService {
                 }
             }
 //            fuck yeah
-            Log.i("test", bun.get("android.largeIcon").toString());
-
             Object largeIcon = bun.get("android.largeIcon");
             Icon icon = (Icon) largeIcon;
 
@@ -132,57 +131,27 @@ public class NotificationService extends NotificationListenerService {
             if (Arrays.asList(uturnCodes).contains(hex)) { direction = "u"; directionText = "Make a U-turn"; }
             if (Arrays.asList(endCodes).contains(hex)) { direction = "e"; directionText = "You have arrived!"; }
 
+            String distanceString = bun.get("android.title").toString();
+            Integer distance = 0;
+            Log.d("distanceString", distanceString);
+            try {
+                if (distanceString.split(" ")[1] != "m") {
+                    distance = Integer.valueOf(distanceString.split(" ")[0]) * 1000;
+                }
+            } catch (Exception e) {
+                distance = 0;
+            }
 
-//          if (deviceStatus) {
-//            if (!informationMessage[0].equals(informationMessageSentLastTime[0])) {//destination
-//                controlBle.sendDestination(informationMessage[0]);
-//                informationMessageSentLastTime[0] = informationMessage[0];
-//            }
-//            if (!Objects.equals(informationMessage[1], informationMessageSentLastTime[1])) {//ETA
-//                controlBle.sendEta(informationMessage[1]);
-//                informationMessageSentLastTime[1] = informationMessage[1];
-//            }
-//            if (!Objects.equals(informationMessage[2], informationMessageSentLastTime[2])) {//direction
-//
-//                if (informationMessage[2].length() > 20) {
-//                    controlBle.sendDirection(informationMessage[2].substring(0, 20) + "..");
-//                } else {
-//                    controlBle.sendDirection(informationMessage[2]);
-//                }
-//
-//                informationMessageSentLastTime[2] = informationMessage[2];
-//            }
-//            if (!Objects.equals(informationMessage[3], informationMessageSentLastTime[3])) {
-//
-//                controlBle.sendDirectionDistances(informationMessage[3]);
-//
-//                informationMessageSentLastTime[3] = informationMessage[3];
-//            }
-//            if (!Objects.equals(informationMessage[4], informationMessageSentLastTime[4])) {
-//
-//                controlBle.sendEtaInMinutes(informationMessage[4]);
-//
-//                informationMessageSentLastTime[4] = informationMessage[4];
-//            }
-//            if (!Objects.equals(informationMessage[5], informationMessageSentLastTime[5])) {
-//
-//                controlBle.sendDistance(informationMessage[5]);
-//
-//                informationMessageSentLastTime[5] = informationMessage[5];
-//            }
-//            if (!Objects.equals(informationMessage[6], informationMessageSentLastTime[6])) {
-//
-//                controlBle.sendDirectionPrecise(informationMessage[6]);
-//
-//                informationMessageSentLastTime[6] = informationMessage[6];
-//            }
-//            Log.d("d", "done");
-//            informationMessageSentLastTime = informationMessage;
-//            ifSendNotification = false;//reduce the frequency of sending messages
-//            //why not just check if two messages are the same,  why still need to send same message every half second:
-//            //because if the device lost connection before, we have to keep send message to it to keep it does not
-//            //receive any wrong message.
-//        }
+            Log.d("distance", String.valueOf(distance));
+
+            String message = direction + ":" + distance.toString();
+            Log.i("message", message);
+
+            if (deviceStatus) {
+                controlBle.sendDirection(message);
+            }
+            Log.d("d", "done (hopefully)");
+
 
 
         }
