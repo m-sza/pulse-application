@@ -151,9 +151,6 @@ public class NotificationService extends NotificationListenerService {
                 controlBle.sendDirection(message);
             }
             Log.d("d", "done (hopefully)");
-
-
-
         }
 
 
