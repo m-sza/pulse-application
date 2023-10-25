@@ -70,37 +70,41 @@ public class NotificationService extends NotificationListenerService {
 
             Bundle bun = not.extras;
 
-            for (String key : bun.keySet()) {
-                try {
-                    Log.d(key, bun.get(key).toString());
-                } catch (Exception e) {
-                }
-            }
-//            fuck yeah
-            Object largeIcon = bun.get("android.largeIcon");
-            Icon icon = (Icon) largeIcon;
-
-            Drawable drawable = icon.loadDrawable(this);
-            Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
-
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-
-            byte[] bitmapBytes = baos.toByteArray();
-            // shorten byeteArray
-            MessageDigest md = null;
-            try {
-                md = MessageDigest.getInstance("MD5");
-            } catch (Exception e) {
-            }
-            byte[] MD5Bytes = md.digest(bitmapBytes);
+//            for (String key : bun.keySet()) {
+//                try {
+//                    Log.d(key, bun.get(key).toString());
+//                } catch (Exception e) {
+//                }
+//            }
 
             String hex = (String) "";
-            for (byte key : MD5Bytes) {
-                hex = hex + Integer.toHexString(Math.abs(key));
-            }
+            try {
+                Object largeIcon = bun.get("android.largeIcon");
+                Icon icon = (Icon) largeIcon;
 
-            Log.i("hex", hex);
+                Drawable drawable = icon.loadDrawable(this);
+                Bitmap bitmap = ((BitmapDrawable) drawable).getBitmap();
+
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+
+                byte[] bitmapBytes = baos.toByteArray();
+                Log.i("bitmapBytes", Arrays.toString(bitmapBytes));
+                // shorten byeteArray
+                MessageDigest md = null;
+                try {
+                    md = MessageDigest.getInstance("MD5");
+                } catch (Exception ignored) { }
+
+                byte[] MD5Bytes = md.digest(bitmapBytes);
+
+                for (byte key : MD5Bytes) {
+                    hex = hex + Integer.toHexString(Math.abs(key));
+                }
+            } catch (Exception ignored) { }
+
+
+            Log.e("hex", hex);
 
             String[] beginCodes = {
                     "2be7863432a727174291335104b3120"
@@ -120,7 +124,12 @@ public class NotificationService extends NotificationListenerService {
             String[] endCodes = {
 
             };
-
+//            unknown codes:
+//            7a7374491f4242527c297e5464756810
+//            52185e477fa2227526f2d1e1f627a8
+//            472c12564c381460645b53413472b25
+//            5d271677202741134812697c13694962
+//            2c767778672784d19702c173c3b515c
 
             String direction = (String) "x";
             String directionText = (String) "unknown";
@@ -133,7 +142,7 @@ public class NotificationService extends NotificationListenerService {
 
             String distanceString = bun.get("android.title").toString();
             Integer distance = 0;
-            Log.d("distanceString", distanceString);
+
             try {
                 if (distanceString.split(" ")[1] != "m") {
                     distance = Integer.valueOf(distanceString.split(" ")[0]) * 1000;
@@ -146,11 +155,11 @@ public class NotificationService extends NotificationListenerService {
 
             String message = direction + ":" + distance.toString();
             Log.i("message", message);
+            Log.d("directionText", directionText);
 
             if (deviceStatus) {
                 controlBle.sendDirection(message);
             }
-            Log.d("d", "done (hopefully)");
         }
 
 

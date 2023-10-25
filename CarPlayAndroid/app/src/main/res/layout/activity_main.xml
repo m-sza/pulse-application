@@ -60,12 +60,12 @@
             android:gravity="center"
             android:layout_weight="9">
 
-
+        <!--
             <TextView
                 android:id="@+id/navTitle"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:text="unknown"
+                android:text="Lets' go!"
                 android:layout_marginTop="-50dp"
                 android:textColor="@color/white"
                 android:gravity="center"
@@ -74,7 +74,7 @@
                 android:id="@+id/navDistance"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-                android:layout_marginTop="-20dp"
+                android:layout_marginTop="-15dp"
                 android:layout_marginLeft="-275dp"
                 android:text="0m"
                 android:textColor="@color/white"
@@ -84,9 +84,9 @@
                 android:id="@+id/navEta"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="-275dp"
-                android:text="100 min"
+                android:text="Arrival: 23 min (12:24)"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="16sp" />
@@ -94,13 +94,23 @@
                 android:id="@+id/navDestination"
                 android:layout_width="match_parent"
                 android:layout_height="25dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="35dp"
                 android:layout_marginLeft="-275dp"
-                android:text="10 km"
+                android:text="Distance: 6.4 km"
                 android:textColor="@color/white"
                 android:gravity="center"
                 android:textSize="16sp" />
+            -->
 
+            <TextView
+                android:id="@+id/welcomeText"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="5dp"
+                android:text="Welcome to Pulse Navigation! \n Set a destination in Google Maps or tap the button at the bottom to discover effortless navigation. \n \n"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="16sp" />
         </LinearLayout>
 
 
@@ -213,7 +223,7 @@
         <TextView
             android:id="@+id/textViewDeviceName"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="0dp"
             android:text="no device connected"
             android:textColor="@color/white"
             android:gravity="center"
