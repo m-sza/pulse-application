@@ -107,16 +107,20 @@ public class NotificationService extends NotificationListenerService {
             Log.e("hex", hex);
 
             String[] beginCodes = {
-                    "2be7863432a727174291335104b3120"
+                   "2be7863432a727174291335104b3120"
             };
             String[] straightCodes = {
-
+                    "770a543365614577b5963224c959"
             };
             String[] rightCodes = {
-                    "124f4c726d254f207476c5b5b177b"
+                    "124f4c726d254f207476c5b5b177b",
+                    "52185e477fa2227526f2d1e1f627a8" //slight right
+//                    still need sharp right
             };
             String[] leftCodes = {
-
+                    "7a7374491f4242527c297e5464756810",
+                    "2c603e264355203f4737327b48b1c5" //sharp left
+//                    still need slight left
             };
             String[] uturnCodes = {
 
@@ -125,8 +129,6 @@ public class NotificationService extends NotificationListenerService {
 
             };
 //            unknown codes:
-//            7a7374491f4242527c297e5464756810
-//            52185e477fa2227526f2d1e1f627a8
 //            472c12564c381460645b53413472b25
 //            5d271677202741134812697c13694962
 //            2c767778672784d19702c173c3b515c
@@ -140,20 +142,25 @@ public class NotificationService extends NotificationListenerService {
             if (Arrays.asList(uturnCodes).contains(hex)) { direction = "u"; directionText = "Make a U-turn"; }
             if (Arrays.asList(endCodes).contains(hex)) { direction = "e"; directionText = "You have arrived!"; }
 
-            String distanceString = bun.get("android.title").toString();
-            Integer distance = 0;
 
+            String distanceString = bun.get("android.title").toString();
+            Log.i("distanceString", distanceString);
+
+            Double distance = 0.0;
             try {
-                if (distanceString.split(" ")[1] != "m") {
-                    distance = Integer.valueOf(distanceString.split(" ")[0]) * 1000;
+                if (!distanceString.split(" ")[1].equals("m")) {
+                    distance = Double.valueOf(distanceString.split(" ")[0]) * 1000;
+                } else {
+                    distance = Double.valueOf(distanceString.split(" ")[0]);
                 }
             } catch (Exception e) {
-                distance = 0;
+                distance = 0.0  ;
             }
 
-            Log.d("distance", String.valueOf(distance));
+            Log.d("distance", String.valueOf(Math.round(distance)));
 
-            String message = direction + ":" + distance.toString();
+            String message = direction + ":" + String.valueOf(Math.round(distance));
+            
             Log.i("message", message);
             Log.d("directionText", directionText);
 
