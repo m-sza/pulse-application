@@ -98,7 +98,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+//                    if (deviceStatus) { //idk if this works remove the if statement if it doesnt
                     controlBle.sendDirection("l:0");
+//                    }
                 } catch (Exception e) {
                     Log.e("error", "Unable to test, connect device" );
                 }
@@ -110,7 +112,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+//                    if (deviceStatus) { //idk if this works remove the if statement if it doesnt
                     controlBle.sendDirection("r:0");
+//                    }
                 } catch (Exception e) {
                     Log.e("error", "Unable to test, connect device" );
                 }
