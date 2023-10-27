@@ -160,7 +160,7 @@ public class NotificationService extends NotificationListenerService {
             Log.d("distance", String.valueOf(Math.round(distance)));
 
             String message = direction + ":" + String.valueOf(Math.round(distance));
-            
+
             Log.i("message", message);
             Log.d("directionText", directionText);
 

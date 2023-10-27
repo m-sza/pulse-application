@@ -10,21 +10,21 @@
     >
 
 
-    <LinearLayout
-        android:id="@+id/upper"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@color/lightbg"
-        android:orientation="horizontal">
+<!--    <LinearLayout-->
+<!--        android:id="@+id/upper"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="60dp"-->
+<!--        android:background="@color/lightbg"-->
+<!--        android:orientation="horizontal">-->
 
-        <TextView
-            android:layout_width="120dp"
-            android:layout_height="match_parent"
-            android:text="Pulse"
-            android:textColor="@color/white"
-            android:gravity="center"
-            android:textSize="20sp" />
-    </LinearLayout>
+<!--        <TextView-->
+<!--            android:layout_width="120dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:text="Pulse"-->
+<!--            android:textColor="@color/white"-->
+<!--            android:gravity="center"-->
+<!--            android:textSize="20sp" />-->
+<!--    </LinearLayout>-->
 
     <TextView
         android:id="@+id/debugText"
@@ -38,7 +38,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="250dp"
-        android:layout_marginTop="225dp">
+        android:layout_marginTop="200dp">
 
 
         <Button
@@ -110,7 +110,7 @@
                 android:text="Welcome to Pulse Navigation! \n Set a destination in Google Maps or tap the button at the bottom to discover effortless navigation. \n \n"
                 android:textColor="@color/white"
                 android:gravity="center"
-                android:textSize="16sp" />
+                android:textSize="15sp" />
         </LinearLayout>
 
 
@@ -248,7 +248,7 @@
             android:background="@drawable/button"
             android:text="Notification settings"
             android:textColor="@color/white"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/buttonScanNew"
@@ -259,7 +259,7 @@
             android:background="@drawable/button"
             android:text="scan"
             android:textColor="@color/white"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
         <Button
             android:id="@+id/buttonConnectOld"
@@ -270,7 +270,7 @@
             android:background="@drawable/button"
             android:text="Connect to Previous"
             android:textColor="@color/white"
-            android:textSize="12sp" />
+            android:textSize="10sp" />
 
 
 
